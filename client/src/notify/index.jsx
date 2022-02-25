@@ -9,14 +9,6 @@ import { NotificationContext } from "./NotificationContext";
 // const containerElement = createContainer();
 // let notify;
 
-// useAPINotifications();
-
-function useAPINotifications() {
-  console.log(useContext(NotificationContext), 'NotificationContext useAPINotifications');
-  // const { notifications, addNotificationFunc } = useContext(APINotificationsContext);
-  // return { notifications, addNotificationFunc };
-}
-
 // ReactDOM.render(
 //   <NotificationsManager
 //     setNotify={(notifyFn) => {
@@ -29,7 +21,6 @@ function useAPINotifications() {
 export { Notification, Color };
 
 export function info(children, autoClose) {
-  console.log(children, 'INFO SHOW');
   return notify({
     color: Color.info,
     children,

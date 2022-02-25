@@ -9,7 +9,6 @@ const appRoot = document.getElementsByTagName('html')[0];
 const NotificationsManager = ({ children }) => {
   let [notifications, setNotifications] = useState([]);
 
-  console.log(notifications, 'notifications');
 
   const createNotification = useCallback(({ color, message, autoClose, children }) => {
     console.log(color, autoClose, children, 'color, autoClose, children');
@@ -39,19 +38,6 @@ const NotificationsManager = ({ children }) => {
     setNotifications(filteredNotifications);
   };
 
-  // return (
-  //   <>
-  //     {notifications.map(({ id, ...props }, index) => (
-  //       <Notification
-  //         key={id}
-  //         onDelete={() => deleteNotification(index)}
-  //         {...props}
-  //       />
-  //     ))}
-  //     <NotificationContext.Provider value={createNotification}>{children}</NotificationContext.Provider>
-  //   </>
-  // );
-
   return notifications.map(({ id, ...props }, index) => (
     <Notification
       key={id}
@@ -60,9 +46,5 @@ const NotificationsManager = ({ children }) => {
     />
   ));
 }
-
-// NotificationsManager.propTypes = {
-//   setNotify: PropTypes.func.isRequired,
-// };
 
 export default NotificationsManager;

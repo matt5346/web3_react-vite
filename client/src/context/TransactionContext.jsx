@@ -23,11 +23,9 @@ function callNotification(message, color) {
     const { createNotification } = useContext(NotificationContext);
     // const { addNotificationFunc } = useContext(APINotificationsContext);
     // useEffect(() => {
-    //     console.log('useEffect');
     //     addNotificationFunc('getAllTransactions_ERROR');
     //   }, [addNotificationFunc]);
     createNotification({ message, color, id: notifications.length });
-    console.log(useContext(NotificationContext), 'useContext(NotificationContext) callNotification');
     // createNotification(color);
     // addNotificationFunc(message);
 }
@@ -62,10 +60,8 @@ const TransactionProvider = ({ children }) => {
             console.log(structuredTransactions, 'structuredTransactions');
             setTransactions(structuredTransactions);
         } catch(err) {
-            console.log(ethereum, 'ethereum');
             if (ethereum && ethereum.networkVersion === 1) {
                 const transactionContract = getEtherumContract();
-                console.log(transactionContract, 'transactionContract');
                 createNotification('Your current chain is mainnet', Color.error);
                 createNotification('Krypt support only Ropsten chain', Color.info);
             }
@@ -76,9 +72,7 @@ const TransactionProvider = ({ children }) => {
         try {
             if(!ethereum) return alert("Please install metamask");
     
-            console.log('checkIfWalletIsConnected');
             const accounts = await ethereum.request({ method: 'eth_accounts'});
-            console.log(accounts, 'checkIfWalletIsConnected');
     
             if(accounts.length) {
                 setCurrentAccount(accounts[0]);
@@ -88,10 +82,8 @@ const TransactionProvider = ({ children }) => {
                 console.log('NO accounts found');
             }
     
-            console.log(accounts, 'account');
         } catch(err) {
             createNotification('WALLET_ERROR', Color.error);
-            console.log(err, 'checkIfWalletIsConnected ERROR')
         }
     }
 
@@ -128,8 +120,6 @@ const TransactionProvider = ({ children }) => {
             if(!ethereum) return alert("Please install metamask");
             const { addressTo, amount, keyword, message } = formData;
             const parsedAmount = ethers.utils.parseEther(amount);
-            console.log(amount, 'amount');
-            console.log(parsedAmount, 'parsedAmount');
 
             const transactionContract = getEtherumContract();
 
