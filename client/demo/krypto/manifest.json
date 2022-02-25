@@ -1,0 +1,19 @@
+{
+  "src/main.jsx": {
+    "file": "assets/main.0f28db46.js",
+    "src": "src/main.jsx",
+    "isEntry": true,
+    "imports": [
+      "_vendor.597cc16f.js"
+    ],
+    "css": [
+      "assets/main.b749beed.css"
+    ],
+    "assets": [
+      "assets/logo.60ecbcf0.png"
+    ]
+  },
+  "_vendor.597cc16f.js": {
+    "file": "assets/vendor.597cc16f.js"
+  }
+}
